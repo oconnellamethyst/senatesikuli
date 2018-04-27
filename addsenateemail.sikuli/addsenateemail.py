@@ -1,18 +1,18 @@
 def concatenate(first,last):
-    firstpart = []
-    lastpart = []
+    firstpart = ""
+    lastpart = ""
     for char in first:
         if char in 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ':
-            firstpart.append()
+            firstpart.append(char)
         else:
             pass
         firstpart = []
     for char in last:
         if char in 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ':
-            lastpart.append()
+            lastpart.append(char)
         else:
             pass
-    return(firstpart + "." + lastpart)
+    return(firstpart,".",lastpart)
 
 # Main Program
 
@@ -23,24 +23,25 @@ lastname = input("Please enter your first name:")
 
 wait("34outlook.PNG")
 click("34outlook.PNG")
-wait("1welcomescreen.PNG")
-type(key.ENTER)
-wait("2accountsetup.PNG")
-type(firstname + " " + lastname)
-type(key.TAB)
-type(concatenate(firstname,lastname) + "@saintpaul.edu")
-type(key.TAB)
+wait("36welcometooutlook.PNG")
+type(Key.ENTER)
+type(Key.ENTER)
+wait("37name.PNG")
+type("37name.PNG", firstname + " " + lastname)
+type(Key.TAB)
+type(concatenate(firstname,lastname),"@saintpaul.edu")
+type(Key.TAB)
 type(staridpass)
-type(key.TAB)
+type(Key.TAB)
 type(staridpass)
-type(key.ENTER)
+type(Key.ENTER)
 
 wait("5security.PNG")
 type(starid + "@minnstate.edu")
-type(key.TAB)
+type(Key.TAB)
 type(staridpass)
 click("8remembermycredentials.PNG")
-type(key.ENTER)
+type(Key.ENTER)
 
 wait("5security.PNG")
 click("15securitypromptmorechoices.PNG")
@@ -49,10 +50,10 @@ click("16useadifferentaccount.PNG")
 
 wait("19usernamefield.PNG")
 type("19usernamefield.PNG", starid)
-type(key.TAB)
+type(Key.TAB)
 type(staridpass)
 click("8remembermycredentials.PNG")
-type(key.ENTER)
+type(Key.ENTER)
 
 
 wait("12sucessfulconfiguration.PNG")
