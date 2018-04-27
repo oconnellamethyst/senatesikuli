@@ -70,25 +70,65 @@
 <h2>addsenateemail.sikuli</h2> <a href="addsenateemail.zip">(Download this script)</a>
 </div>
 <pre class="sikuli-code">
-starid = <span class="skw">input</span>(<span class="str">"Please enter your StarID:"</span>)
-staridpass = <span class="skw">input</span>(<span class="str">"Please enter your StarID Password:"</span>)
-firstname = <span class="skw">input</span>(<span class="str">"Please enter your first name:"</span>)
-lastname = <span class="skw">input</span>(<span class="str">"Please enter your first name:"</span>)
-<span class="kw">def</span> concatenate(firstname,lastname):
+<span class="kw">def</span> concatenate(first,last):
     firstpart = []
     lastpart = []
-    <span class="kw">for</span> char <span class="kw">in</span> firstname:
+    <span class="kw">for</span> char <span class="kw">in</span> first:
         <span class="kw">if</span> char <span class="kw">in</span> <span class="str">'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'</span>:
             firstpart.append()
         <span class="kw">else</span>:
             <span class="kw">pass</span>
         firstpart = []
-    <span class="kw">for</span> char <span class="kw">in</span> lastname:
+    <span class="kw">for</span> char <span class="kw">in</span> last:
         <span class="kw">if</span> char <span class="kw">in</span> <span class="str">'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'</span>:
             lastpart.append()
         <span class="kw">else</span>:
             <span class="kw">pass</span>
     <span class="kw">return</span>(firstpart + <span class="str">"."</span> + lastpart)
+
+<span class="cmt"># Main Program</span>
+
+starid = <span class="skw">input</span>(<span class="str">"Please enter your StarID:"</span>)
+staridpass = <span class="skw">input</span>(<span class="str">"Please enter your StarID Password:"</span>)
+firstname = <span class="skw">input</span>(<span class="str">"Please enter your first name:"</span>)
+lastname = <span class="skw">input</span>(<span class="str">"Please enter your first name:"</span>)
+
+<span class="skw">wait</span>(<span class="str">"34outlook.PNG"</span>)
+<span class="skw">click</span>(<span class="str">"34outlook.PNG"</span>)
+<span class="skw">wait</span>(<span class="str">"1welcomescreen.PNG"</span>)
+<span class="skw">type</span>(key.ENTER)
+<span class="skw">wait</span>(<span class="str">"2accountsetup.PNG"</span>)
+<span class="skw">type</span>(firstname + <span class="str">" "</span> + lastname)
+<span class="skw">type</span>(key.TAB)
+<span class="skw">type</span>(concatenate(firstname,lastname) + <span class="str">"@saintpaul.edu"</span>)
+<span class="skw">type</span>(key.TAB)
+<span class="skw">type</span>(staridpass)
+<span class="skw">type</span>(key.TAB)
+<span class="skw">type</span>(staridpass)
+<span class="skw">type</span>(key.ENTER)
+
+<span class="skw">wait</span>(<span class="str">"5security.PNG"</span>)
+<span class="skw">type</span>(starid + <span class="str">"@minnstate.edu"</span>)
+<span class="skw">type</span>(key.TAB)
+<span class="skw">type</span>(staridpass)
+<span class="skw">click</span>(<span class="str">"8remembermycredentials.PNG"</span>)
+<span class="skw">type</span>(key.ENTER)
+
+<span class="skw">wait</span>(<span class="str">"5security.PNG"</span>)
+<span class="skw">click</span>(<span class="str">"15securitypromptmorechoices.PNG"</span>)
+<span class="skw">wait</span>(<span class="str">"16useadifferentaccount.PNG"</span>)
+<span class="skw">click</span>(<span class="str">"16useadifferentaccount.PNG"</span>)
+
+<span class="skw">wait</span>(<span class="str">"19usernamefield.PNG"</span>)
+<span class="skw">type</span>(<span class="str">"19usernamefield.PNG"</span>, starid)
+<span class="skw">type</span>(key.TAB)
+<span class="skw">type</span>(staridpass)
+<span class="skw">click</span>(<span class="str">"8remembermycredentials.PNG"</span>)
+<span class="skw">type</span>(key.ENTER)
+
+
+<span class="skw">wait</span>(<span class="str">"12sucessfulconfiguration.PNG"</span>)
+<span class="skw">click</span>(<span class="str">"13finishbutton.PNG"</span>)
 </pre>
 </body>
 </html>
