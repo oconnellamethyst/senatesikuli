@@ -19,7 +19,7 @@ def concatenate(first,last):
 # Main Program
 
 starid = input("Please enter your StarID:")
-staridpass = input("Please enter your StarID Password:")
+staridpass = input("Please enter your StarID Password:", hidden = True)
 firstname = input("Please enter your first name:")
 lastname = input("Please enter your first name:")
 
