@@ -71,20 +71,22 @@
 </div>
 <pre class="sikuli-code">
 <span class="kw">def</span> concatenate(first,last):
-    firstpart = <span class="str">""</span>
-    lastpart = <span class="str">""</span>
+    firstpart = []
+    lastpart = []
     <span class="kw">for</span> char <span class="kw">in</span> first:
         <span class="kw">if</span> char <span class="kw">in</span> <span class="str">'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'</span>:
             firstpart.append(char)
         <span class="kw">else</span>:
             <span class="kw">pass</span>
-        firstpart = []
     <span class="kw">for</span> char <span class="kw">in</span> last:
         <span class="kw">if</span> char <span class="kw">in</span> <span class="str">'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'</span>:
             lastpart.append(char)
         <span class="kw">else</span>:
             <span class="kw">pass</span>
-    <span class="kw">return</span>(firstpart,<span class="str">"."</span>,lastpart)
+    firstpart = <span class="str">''</span>.join(firstpart)
+    lastpart = <span class="str">''</span>.join(lastpart)
+    concatenation = firstpart + <span class="str">"."</span> + lastpart
+    <span class="kw">return</span>(concatenation)
 
 <span class="cmt"># Main Program</span>
 

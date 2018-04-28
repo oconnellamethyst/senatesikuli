@@ -1,18 +1,20 @@
 def concatenate(first,last):
-    firstpart = ""
-    lastpart = ""
+    firstpart = []
+    lastpart = []
     for char in first:
         if char in 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ':
             firstpart.append(char)
         else:
             pass
-        firstpart = []
     for char in last:
         if char in 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ':
             lastpart.append(char)
         else:
-            pass
-    return(firstpart,".",lastpart)
+            pass    
+    firstpart = ''.join(firstpart)
+    lastpart = ''.join(lastpart)
+    concatenation = firstpart + "." + lastpart
+    return(concatenation)
 
 # Main Program
 
