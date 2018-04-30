@@ -70,55 +70,151 @@
 <h2>bookstorenav.sikuli</h2> <a href="bookstorenav.zip">(Download this script)</a>
 </div>
 <pre class="sikuli-code">
-<span class="kw">def</span> TermFinder():
+<span class="kw">def</span> TermSelect():
+    <span class="skw">wait</span>(Pattern(<img src="2terms.png" />).targetOffset(<span class="dig">0</span>,<span class="dig">32</span>),<span class="dig">200</span>)
     <span class="skw">click</span>(Pattern(<img src="2terms.png" />).targetOffset(<span class="dig">0</span>,<span class="dig">32</span>))
-    terms = <span class="dig">0</span>
-    <span class="kw">while</span> exists(<img src="1getcoursematerials-1.png" />) == None:
-        <span class="skw">type</span>(Key.DOWN)
-        terms += <span class="dig">1</span>
-    terms = terms - <span class="dig">4</span>
-    <span class="skw">type</span>(Key.PAGE_UP)
-    <span class="kw">return</span> terms
 
-<span class="kw">def</span> DepartmentFinder():
+<span class="kw">def</span> DepartmentSelect():
+    <span class="skw">wait</span>(Pattern(<img src="3departments.png" />).targetOffset(<span class="dig">0</span>,<span class="dig">32</span>),<span class="dig">200</span>)
     <span class="skw">click</span>(Pattern(<img src="3departments.png" />).targetOffset(<span class="dig">0</span>,<span class="dig">32</span>))
-    department = <span class="dig">0</span>
-    <span class="kw">while</span> exists(<img src="1getcoursematerials-1.png" />) == None:
-        <span class="skw">type</span>(Key.DOWN)
-        department += <span class="dig">1</span>
-    department = department - <span class="dig">4</span>
-    <span class="kw">return</span> department
 
-<span class="kw">def</span> CourseFinder():
+<span class="kw">def</span> CourseSelect():
+    <span class="skw">wait</span>(Pattern(<img src="4courseandselection.png" />).targetOffset(<span class="dig">0</span>,<span class="dig">32</span>),<span class="dig">200</span>)
     <span class="skw">click</span>(Pattern(<img src="4courseandselection.png" />).targetOffset(<span class="dig">0</span>,<span class="dig">32</span>))
-    course = <span class="dig">0</span>
+
+<span class="kw">def</span> FindCount():
+    <span class="cmt">#FIND FASTER WAY OMG SO SLOWWW</span>
+    <span class="kw">for</span> time <span class="kw">in</span> range(<span class="dig">0</span>, <span class="dig">4</span>):
+        <span class="skw">type</span>(Key.DOWN)
+    counter = <span class="dig">4</span>
     <span class="kw">while</span> exists(<img src="1getcoursematerials-1.png" />) == None:
         <span class="skw">type</span>(Key.DOWN)
-        course += <span class="dig">1</span>
-    course = course - <span class="dig">4</span>
-    <span class="kw">return</span> course
+        counter += <span class="dig">1</span>
+    <span class="kw">for</span> number <span class="kw">in</span> range(<span class="dig">0</span>, counter):
+        <span class="skw">type</span>(Key.UP)
+    count = counter - <span class="dig">2</span>
+    <span class="kw">return</span> count
 
-<span class="kw">def</span> TermSelector(int,webAddress):
-    <span class="skw">type</span>(Key.N, KeyModifier.CTRL + KeyModifier.SHIFT)
-    <span class="skw">type</span>(webAddress + Key.ENTER)
-    <span class="skw">click</span>(Pattern(<img src="2terms.png" />).targetOffset(<span class="dig">0</span>,<span class="dig">32</span>))
+<span class="kw">def</span> Navigator(WebAddress):
+    <span class="str">"""Stick in the WebAddress, will navigate to a new page"""</span>
+    <span class="skw">type</span>(<span class="str">'n'</span>, KeyModifier.CTRL + KeyModifier.SHIFT)
+    <span class="skw">wait</span>(<img src="19brobar.png" />)
+    <span class="skw">type</span>(WebAddress + Key.ENTER)
+    <span class="skw">sleep</span>(<span class="dig">1</span>)
+
+<span class="kw">def</span> Selector(int):
+    <span class="str">"""Stick in the number of terms down the list that the program should navigate to"""</span>
     <span class="kw">for</span> number <span class="kw">in</span> range(<span class="dig">0</span>, int - <span class="dig">1</span>):
         <span class="skw">type</span>(Key.DOWN)
 
-<span class="kw">def</span> DepartmentSelector(int):
-    <span class="skw">click</span>(Pattern(<img src="3departments.png" />).targetOffset(<span class="dig">0</span>,<span class="dig">32</span>))
-    <span class="kw">for</span> number <span class="kw">in</span> range(<span class="dig">0</span>, int - <span class="dig">1</span>):
+<span class="kw">def</span> AddSelect():
+    <span class="skw">wait</span>(<img src="6selectyourcourses.png" />)
+    <span class="skw">click</span>(<img src="6selectyourcourses.png" />)
+    <span class="kw">while</span> exists(<img src="7addselection.png" />) == None:
+        <span class="skw">type</span>(Key.RIGHT)
+    <span class="skw">click</span>(<img src="7addselection.png" />)
+
+<span class="kw">def</span> Highlighter(count, Counter, calibrate):
+    <span class="str">"""Stick in the count of the number of items in a list and the number of items left in a counter of 25, and an offset of the stopping point (add one for select!)"""</span>
+    adjustment = <span class="dig">0</span>
+    <span class="kw">if</span> (count &lt;= Counter <span class="kw">and</span> calibrate == <span class="dig">0</span>):
+        <span class="skw">type</span>(<span class="str">'a'</span>, KeyModifier.CTRL)
+        AddSelect()
+        remainder = Counter - count
+    <span class="kw">elif</span> (count - calibrate &lt;= Counter):
+        Selector(calibrate + <span class="dig">1</span>)
+        keyDown(Key.SHIFT)
+        Selector(count - calibrate)
+        keyUp(Key.SHIFT)
+        AddSelect()
+        remainder = Counter - (count - calibrate)
+    <span class="kw">else</span>:
+        Selector(calibrate + <span class="dig">1</span>)
+        keyDown(Key.SHIFT)
+        Selector(Counter)
+        keyUp(Key.SHIFT)
+        AddSelect()
+        remainder = <span class="dig">0</span>
+        <span class="cmt">#this becomes the new calibration</span>
+        adjustment = calibrate + Counter
+    <span class="kw">return</span>(remainder,adjustment)
+
+<span class="kw">def</span> Saver(number,PDF):
+    <span class="kw">while</span> exists(<img src="1getcoursematerials-1.png" />) == None:
         <span class="skw">type</span>(Key.DOWN)
-<span class="kw">def</span> ClassSelector
+    <span class="skw">click</span>(<img src="1getcoursematerials-1.png" />)
+    <span class="kw">for</span> number <span class="kw">in</span> range(<span class="dig">1</span>,<span class="dig">10</span>):
+        <span class="skw">type</span>(Key.LEFT)
+        <span class="skw">type</span>(Key.UP)
+    <span class="skw">wait</span>(<img src="7capcha.png" />)
+    <span class="skw">click</span>(<img src="7capcha.png" />)
+    <span class="skw">wait</span>(<img src="11gradient.png" />,<span class="dig">900</span>)
+    <span class="kw">while</span> exists(<img src="17bookist-1.png" />) == None:
+        <span class="skw">type</span>(Key.RIGHT)
+    <span class="skw">click</span>(<img src="17bookist-1.png" />)
+    <span class="skw">wait</span>(<img src="14printcoursematerialslist.png" />)
+    <span class="skw">click</span>(<img src="14printcoursematerialslist.png" />)
+    <span class="skw">wait</span>(<img src="15saveaspdf.png" />)
+    <span class="skw">click</span>(<img src="16save.png" />)
+    <span class="skw">type</span>(Key.LEFT)
+    <span class="kw">for</span> keypress <span class="kw">in</span> range (<span class="dig">1</span>,<span class="dig">17</span>):
+        <span class="skw">type</span>(Key.RIGHT)
+    <span class="skw">type</span>(<span class="str">"-"</span> + number + <span class="str">"-"</span> + PDF)
+    <span class="skw">type</span>(Key.ENTER)
+    <span class="skw">type</span>(<span class="str">'W'</span>, KeyModifier.CTRL)
 
 <span class="cmt"># Main</span>
+Limit = (<span class="dig">20</span>,)
+DepartSel = <span class="dig">1</span>
+Counter = Limit[<span class="dig">0</span>]
+calibrate = <span class="dig">0</span>
+PDF = <span class="dig">1</span>
 
-webAddress = <span class="skw">input</span>(<span class="str">"Please paste in the Bookstore's Website and make sure your Chrome browser window is small so that the bottom of the tables have only a few pixels between the scroll bar"</span>)
-<span class="skw">type</span>(Key.N, KeyModifier.CTRL + KeyModifier.SHIFT)
-<span class="skw">type</span>(webAddress + Key.ENTER)
-terms = TermFinder()
-<span class="kw">if</span> terms == <span class="dig">1</span>:
-    departments = DepartmentFinder()
+WebAddress = <span class="skw">input</span>(<span class="str">"Please paste in the Bookstore's Website and make sure your Chrome browser window is small so that the bottom of the tables have only a few pixels between the scroll bar"</span>)
+Navigator(WebAddress)
+TermSelect()
+Terms = FindCount()
+<span class="kw">for</span> number <span class="kw">in</span> range(<span class="dig">1</span>,Terms):
+    TermSelect()
+    Selector(number)
+    DepartmentSelect()
+    Departments = FindCount()
+    CourseSelect()
+    Courses = FindCount()
+
+    <span class="kw">while</span> DepartSel != Departments:
+        CourseSelect()
+        values = Highlighter(Courses, Counter, calibrate)
+        Counter = values[<span class="dig">0</span>]
+        calibrate = values[<span class="dig">1</span>]
+
+        <span class="kw">if</span>(Counter == <span class="dig">0</span>):
+            Saver(number,PDF)
+            PDF += <span class="dig">1</span>
+            Counter = Limit[<span class="dig">0</span>]
+            Navigator(WebAddress)
+            TermSelect()
+            Selector(number)
+            DepartmentSelect()
+            Selector(DepartSel)
+            CourseSelect()
+        <span class="kw">else</span>:
+            <span class="kw">pass</span>
+
+        <span class="kw">if</span> calibrate == <span class="dig">0</span>:
+            DepartmentSelect()
+            DepartSel += <span class="dig">1</span>
+            Selector(DepartSel)
+            CourseSelect()
+        <span class="kw">else</span>:
+            <span class="kw">pass</span>
+    <span class="skw">type</span>(<span class="str">'a'</span>, KeyModifier.CTRL)
+    AddSelect()
+
+    Saver(number,PDF)
+    PDF = <span class="dig">1</span>
+    Counter = Limit[<span class="dig">0</span>]
+    Navigator(WebAddress)
 </pre>
 </body>
 </html>
