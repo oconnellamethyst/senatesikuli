@@ -62,11 +62,10 @@ type(Key.TAB)
 type(staridpass)
 click("8remembermycredentials-1.PNG")
 type(Key.ENTER)
-wait("5security-2.PNG",900)
-click("5security-2.PNG")
+wait("5security-3.PNG",900)
+click("20passwordfield.PNG")
 type(staridpass)
-click("8remembermycredentials-2.PNG")
+click("8remembermycredentials-3.PNG")
 type(Key.ENTER)
-
 
     

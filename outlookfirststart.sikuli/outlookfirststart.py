@@ -1,3 +1,6 @@
+starid = input("Please enter your StarID:")
+staridpass = input("Please enter your StarID Password:", hidden = True)
+
 wait("5security.PNG",900)
 click("15securitypromptmorechoices.PNG")
 wait("39differentacc.PNG")
@@ -10,8 +13,8 @@ type(staridpass)
 click("8remembermycredentials.PNG")
 type(Key.ENTER)
 
-wait("5security-1.PNG",900)
-click("5security-1.PNG")
+wait("5security-2.PNG",900)
+click("20passwordfield.PNG")
 type(staridpass)
-click("8remembermycredentials.PNG")
+click("8remembermycredentials-1.PNG")
 type(Key.ENTER)
