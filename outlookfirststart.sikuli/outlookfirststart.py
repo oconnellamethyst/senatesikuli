@@ -1,0 +1,17 @@
+wait("5security.PNG",900)
+click("15securitypromptmorechoices.PNG")
+wait("39differentacc.PNG")
+click("39differentacc.PNG")
+
+wait("19usernamefield.PNG")
+type("19usernamefield.PNG", starid)
+type(Key.TAB)
+type(staridpass)
+click("8remembermycredentials.PNG")
+type(Key.ENTER)
+
+wait("5security-1.PNG",900)
+click("5security-1.PNG")
+type(staridpass)
+click("8remembermycredentials.PNG")
+type(Key.ENTER)
