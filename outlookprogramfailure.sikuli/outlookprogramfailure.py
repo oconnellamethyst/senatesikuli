@@ -1,5 +1,0 @@
-wait("5security-1.PNG",900)
-click("20passwordfield.PNG")
-type(staridpass)
-click("8remembermycredentials.PNG")
-type(Key.ENTER)
