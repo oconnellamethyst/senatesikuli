@@ -70,26 +70,39 @@
 <h2>outlookfirststart.sikuli</h2> <a href="outlookfirststart.zip">(Download this script)</a>
 </div>
 <pre class="sikuli-code">
-starid = <span class="skw">input</span>(<span class="str">"Please enter your StarID:"</span>)
-staridpass = <span class="skw">input</span>(<span class="str">"Please enter your StarID Password:"</span>, hidden = True)
+<span class="kw">try</span>:
+    starid = <span class="skw">input</span>(<span class="str">"Please enter your StarID:"</span>)
+    staridpass = <span class="skw">input</span>(<span class="str">"Please enter your StarID Password:"</span>, hidden = True)
 
-<span class="skw">wait</span>(<span class="str">"5security.PNG"</span>,<span class="dig">900</span>)
-<span class="skw">click</span>(<span class="str">"15securitypromptmorechoices.PNG"</span>)
-<span class="skw">wait</span>(<span class="str">"39differentacc.PNG"</span>)
-<span class="skw">click</span>(<span class="str">"39differentacc.PNG"</span>)
+    <span class="skw">wait</span>(<span class="str">"5security.PNG"</span>,<span class="dig">900</span>)
+    <span class="skw">click</span>(<span class="str">"15securitypromptmorechoices.PNG"</span>)
+    <span class="skw">wait</span>(<span class="str">"39differentacc.PNG"</span>)
+    <span class="skw">click</span>(<span class="str">"39differentacc.PNG"</span>)
 
-<span class="skw">wait</span>(<span class="str">"19usernamefield.PNG"</span>)
-<span class="skw">type</span>(<span class="str">"19usernamefield.PNG"</span>, starid)
-<span class="skw">type</span>(Key.TAB)
-<span class="skw">type</span>(staridpass)
-<span class="skw">click</span>(<span class="str">"8remembermycredentials.PNG"</span>)
-<span class="skw">type</span>(Key.ENTER)
+    <span class="skw">wait</span>(<span class="str">"19usernamefield.PNG"</span>)
+    <span class="skw">type</span>(<span class="str">"19usernamefield.PNG"</span>, starid)
+    <span class="skw">type</span>(Key.TAB)
+    <span class="skw">type</span>(staridpass)
+    <span class="skw">click</span>(<span class="str">"8remembermycredentials.PNG"</span>)
+    <span class="skw">type</span>(Key.ENTER)
 
-<span class="skw">wait</span>(<span class="str">"5security-2.PNG"</span>,<span class="dig">900</span>)
-<span class="skw">click</span>(<span class="str">"20passwordfield.PNG"</span>)
-<span class="skw">type</span>(staridpass)
-<span class="skw">click</span>(<span class="str">"8remembermycredentials-1.PNG"</span>)
-<span class="skw">type</span>(Key.ENTER)
+    <span class="skw">wait</span>(<span class="str">"5security-2.PNG"</span>,<span class="dig">900</span>)
+    <span class="skw">click</span>(<span class="str">"20passwordfield.PNG"</span>)
+    <span class="skw">type</span>(staridpass)
+    <span class="skw">click</span>(<span class="str">"8remembermycredentials-1.PNG"</span>)
+    <span class="skw">type</span>(Key.ENTER)
+
+    <span class="cmt"># Clears out user data</span>
+    starid = <span class="str">":ashd;gahhjgaJHFDHl"</span>
+    staridpass = <span class="str">":ashd;gahhjgaJHFDHl"</span>
+    <span class="kw">del</span> starid
+    <span class="kw">del</span> staridpass
+<span class="kw">except</span>:
+    <span class="cmt"># Clears out user data even if the program fails</span>
+    starid = <span class="str">":ashd;gahhjgaJHFDHl"</span>
+    staridpass = <span class="str">":ashd;gahhjgaJHFDHl"</span>
+    <span class="kw">del</span> starid
+    <span class="kw">del</span> staridpass
 </pre>
 </body>
 </html>

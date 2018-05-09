@@ -70,28 +70,35 @@
 <h2>addsenateinbox.sikuli</h2> <a href="addsenateinbox.zip">(Download this script)</a>
 </div>
 <pre class="sikuli-code">
-<span class="skw">wait</span>(<span class="str">"34outlook.PNG"</span>)
-<span class="skw">click</span>(<span class="str">"34outlook.PNG"</span>)
-<span class="skw">wait</span>(<span class="str">"23file-1.PNG"</span>)
-<span class="skw">click</span>(<span class="str">"23file.PNG"</span>)
-<span class="skw">wait</span>(<span class="str">"24accountsettings.PNG"</span>)
-<span class="skw">click</span>(<span class="str">"24accountsettings.PNG"</span>)
-<span class="skw">wait</span>(<span class="str">"25accountsettings.PNG"</span>)
-<span class="skw">click</span>(<span class="str">"25accountsettings.PNG"</span>)
-<span class="skw">wait</span>(<span class="str">"26sendfromthisaccount.PNG"</span>)
-<span class="skw">doubleClick</span>(<span class="str">"26sendfromthisaccount.PNG"</span>)
-<span class="skw">wait</span>(<span class="str">"28moresettings.PNG"</span>)
-<span class="skw">click</span>(<span class="str">"28moresettings.PNG"</span>)
-<span class="skw">wait</span>(<span class="str">"29advanced.PNG"</span>)
-<span class="skw">click</span>(<span class="str">"29advanced.PNG"</span>)
-<span class="skw">wait</span>(<span class="str">"30add.PNG"</span>)
-<span class="skw">click</span>(<span class="str">"30add.PNG"</span>)
-<span class="skw">wait</span>(<span class="str">"32lilbluebox.PNG"</span>)
-<span class="skw">type</span>(<span class="str">"32lilbluebox.PNG"</span>, <span class="str">"SPC-Student Senate"</span>)
-<span class="skw">wait</span>(<span class="str">"31okay.PNG"</span>)
-<span class="skw">click</span>(<span class="str">"31okay.PNG"</span>)
-<span class="skw">wait</span>(<span class="str">"33apply.PNG"</span>)
-<span class="skw">click</span>(<span class="str">"33apply.PNG"</span>)
+<span class="kw">def</span> addsenateinbox():
+    <span class="str">'''
+    Program to add the senate shared inbox
+    '''</span>
+    <span class="skw">wait</span>(<span class="str">"34outlook.PNG"</span>)
+    <span class="skw">click</span>(<span class="str">"34outlook.PNG"</span>)
+    <span class="skw">wait</span>(<span class="str">"23file-1.PNG"</span>)
+    <span class="skw">click</span>(<span class="str">"23file.PNG"</span>)
+    <span class="skw">wait</span>(<span class="str">"24accountsettings.PNG"</span>)
+    <span class="skw">click</span>(<span class="str">"24accountsettings.PNG"</span>)
+    <span class="skw">wait</span>(<span class="str">"25accountsettings.PNG"</span>)
+    <span class="skw">click</span>(<span class="str">"25accountsettings.PNG"</span>)
+    <span class="skw">wait</span>(<span class="str">"26sendfromthisaccount.PNG"</span>)
+    <span class="skw">doubleClick</span>(<span class="str">"26sendfromthisaccount.PNG"</span>)
+    <span class="skw">wait</span>(<span class="str">"28moresettings.PNG"</span>)
+    <span class="skw">click</span>(<span class="str">"28moresettings.PNG"</span>)
+    <span class="skw">wait</span>(<span class="str">"29advanced.PNG"</span>)
+    <span class="skw">click</span>(<span class="str">"29advanced.PNG"</span>)
+    <span class="skw">wait</span>(<span class="str">"30add.PNG"</span>)
+    <span class="skw">click</span>(<span class="str">"30add.PNG"</span>)
+    <span class="skw">wait</span>(<span class="str">"32lilbluebox.PNG"</span>)
+    <span class="skw">type</span>(<span class="str">"32lilbluebox.PNG"</span>, <span class="str">"SPC-Student Senate"</span>)
+    <span class="skw">wait</span>(<span class="str">"31okay.PNG"</span>)
+    <span class="skw">click</span>(<span class="str">"31okay.PNG"</span>)
+    <span class="skw">wait</span>(<span class="str">"33apply.PNG"</span>)
+    <span class="skw">click</span>(<span class="str">"33apply.PNG"</span>)
+
+<span class="cmt">#Main</span>
+addsenateinbox()
 </pre>
 </body>
 </html>
